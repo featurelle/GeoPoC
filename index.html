@@ -81,12 +81,12 @@
         );
     }
 
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(() => log('SW registered'))
-            .catch(err => log('SW failed', err));
-    }
+    // Service worker (optional - remove if getting 404 on GitHub Pages)
+    // if ('serviceWorker' in navigator) {
+    //     navigator.serviceWorker.register('/service-worker.js')
+    //         .then(() => log('SW registered'))
+    //         .catch(err => log('SW failed', err));
+    // }
 
     // Auto-start on page load
     document.addEventListener('DOMContentLoaded', async () => {
