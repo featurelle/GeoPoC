@@ -9,6 +9,11 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    // Pass-through - no caching for this PoC
+    // For navigation requests, always go to network
+    if (event.request.mode === 'navigate') {
+        event.respondWith(fetch(event.request));
+        return;
+    }
+    // Pass-through for everything else
     event.respondWith(fetch(event.request));
 });
